@@ -1,4 +1,6 @@
 const mongoose=require("mongoose")
+const dotenv=require("dotenv")
+dotenv.config()
 const Schema=mongoose.Schema;
 try{
  connectToDatabase()
@@ -11,7 +13,7 @@ catch(err)
 function connectToDatabase()
 {
   
-  mongoose.connect("mongodb+srv://brianruhiu7504:aExyv2FKWAlugrew@cluster0.vtuw7ja.mongodb.net/?retryWrites=true&w=majority")
+  mongoose.connect(DB_CONN)
 }
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

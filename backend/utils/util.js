@@ -1,4 +1,6 @@
 const multer  = require('multer')
+const path=require("path")
+const fs=require("fs")
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) { 
         cb(null, "./uploads"); 
@@ -32,4 +34,18 @@ async function deleteData(Model)
       console.log(err)
   }
 }
-module.exports={upload,deleteData}
+function deleteImage(filePath)
+{
+  if (fs.existsSync(filePath)) {
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log('File deleted successfully');
+    });
+  } else {
+    console.log('File does not exist');
+  }
+}
+module.exports={deleteData,deleteImage}

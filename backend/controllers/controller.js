@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
 const {User,Post,Commet}=require("../database/models.js")
-const {deleteData}=require("../utils/util.js")
+const {deleteData,deleteImage}=require("../utils/util.js")
 let currentUser=undefined
 async function register(req,res)
 {
-//  deleteData(User)
-//  deleteData(Post)
+ deleteData(User)
+ deleteData(Post)
     const {name,email,password}=req.body
     let newUser={}
    User.find({email:email}).then((user)=>{
@@ -118,7 +118,8 @@ async function deletePost(req,res)
 {
 const {id}=req.params
 try{
-  await Post.findByIdAndDelete({"_id":id})
+ const deletedPost = await Post.findByIdAndDelete({"_id":id})
+ deleteImage(deletePost["image"])
     
 return res.status(200).json({"mssg":"sucessfully deleted"})
 }
