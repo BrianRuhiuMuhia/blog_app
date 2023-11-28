@@ -14,20 +14,21 @@ const result=await fetch(`${props.url}/getCommets/${id}`,{
 return await result.json()
     }
     useEffect(()=>{
-       getCommets().then((data)=>{
-setCommet(data)
-    })   
+//        getCommets().then((data)=>{
+// setCommet(data)
+//     })   
     },[])
   
-    if(commet.length<1 || commet===undefined)
+    if(props.commet.length<1 || props.commet===undefined)
     {
         return ( <div className="loader">
         <div className="spinner"></div>
       </div>)
     }
     else{
-        commets=commet.map((obj)=>{
-return <Commet commeted={obj["commeted"]} commet={obj["commet"]}/>
+        
+        commets=props.commet.map((obj)=>{
+return <Commet commet={obj} key={obj}/>
         })
     }
 

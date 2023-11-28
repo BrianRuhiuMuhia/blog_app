@@ -1,12 +1,12 @@
 export default function postCard(props)
 {
-    const url="http://localhost:5000/uploads"
+    const url="http://localhost:2000/uploads"
 
  
     return (
     <div className="post">
          <div className="post-card">
-<div><img src={`http://localhost:5000/uploads/${props.image}`}></img></div>
+<div><img src={`http://localhost:2000/uploads/${props.image}`}></img></div>
 <div>
     <span className="title">{props.title}</span>
     <span className="text">{props.content}</span>

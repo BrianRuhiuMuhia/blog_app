@@ -10,7 +10,7 @@ import NewPost from "./components/NewPost"
 import MyPosts from "./components/myPosts";
 import Post from "./components/post"
 function App() {
-  const url="http://localhost:5000/blog/api"
+  const url="http://localhost:2000/blog/api"
   return (
     <>
     <BrowserRouter>

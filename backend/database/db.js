@@ -13,7 +13,7 @@ catch(err)
 function connectToDatabase()
 {
   
-  mongoose.connect(DB_CONN)
+  mongoose.connect(process.env.DB_CONN)
 }
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -48,4 +48,4 @@ function deleteImage(filePath)
     console.log('File does not exist');
   }
 }
-module.exports={deleteData,deleteImage}
+module.exports={deleteData,deleteImage,upload}

@@ -7,6 +7,7 @@ export default function Post(props)
     const url=window.location.pathname
     const id=url.split("/").pop()
     const [result,setResult]=useState("")
+    const [commet,setCommet]=useState([])
     async function getPost()
     {
 const data=await fetch(`${props.url}/getpost/${id}`,{
@@ -28,9 +29,9 @@ return data.json()
     }
     return (
         <div>
-<PostCard image={result["image"]}  id={result["_id"]} title={result["title"]} content={result["content"]} key={result["_id"]} showButtons={false}/>
-<AddCommet url={props.url}/>
-<Commets url={props.url}/> 
+<PostCard image={result["image"]} id={result["_id"]} title={result["title"]} content={result["content"]} key={result["_id"]} showButtons={false}/>
+<AddCommet commet={commet} setCommet={setCommet} url={props.url}/>
+<Commets commet={commet} setCommet={setCommet} url={props.url}/> 
         </div>
     )
 }
